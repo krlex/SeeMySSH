@@ -3,7 +3,7 @@
 - For debian/ubuntu:
 `sudo apt-get install -y git`
 `git clone https://github.com/krlex/browser-ssh`
-`./script.sh`
+`./deb.sh`
 
 
 - For freebsd:
