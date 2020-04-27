@@ -27,8 +27,8 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash -x"
-    tmux split-window -h -p 50 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux split-window -v
+    tmux split-window -h -p 50 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux a -t "set ssh in browser"
 
  elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
@@ -49,8 +49,8 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash -x"
-    tmux split-window -h -p 50 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux split-window -v
+    tmux split-window -h -p 50 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux a -t "set ssh in browser"
 
  elif cat /etc/*release | grep ^NAME | grep Debian; then
@@ -83,8 +83,8 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     sudo pkg install -y $PKG_PACKAGE_NAME
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash -x"
-    tmux split-window -h -p 30 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux split-window -v
+    tmux split-window -h -p 30 -t 0 "ssh -R localhost:80:localhost:8080 $NAME@ssh.localhost.run"
     tmux a -t "set ssh in browser"
 
  else
