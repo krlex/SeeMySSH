@@ -11,4 +11,4 @@
 
 Video Demo(Freebsd):
 
-[![asciicast](https://asciinema.org/a/8LN79tVGDQdESg3HXlfiU7Cvy.svg)](https://asciinema.org/a/8LN79tVGDQdESg3HXlfiU7Cvy)
+[![asciicast](https://asciinema.org/a/8LN79tVGDQdESg3HXlfiU7Cvy.svg)](https://asciinema.org/a/Uw7cbtz2TWUKSbQedLqxjuCFL)
