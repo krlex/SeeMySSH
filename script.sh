@@ -3,13 +3,9 @@
 echo "Set IpAddress:"
 read address
 
-echo "Set Port:"
-read port
-
 set -e
 
 UNAME=$(uname)
-
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
 DEB_PACKAGE_NAME="git cmake make tmux build-essential libjson-c-dev libwebsockets-dev"
