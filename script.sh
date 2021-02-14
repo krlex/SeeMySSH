@@ -1,6 +1,15 @@
 #!/bin/sh
 
 UNAME=$(uname)
+check_or_create(){
+FILE=~/.ssh/id_dsa
+if [ -f "$FILE" ]; then
+    echo "$FILE exists."
+else
+  ssh-keygen -b 2048 -t rsa -f $FILE -q -N ""
+
+fi
+}
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
 DEB_PACKAGE_NAME="git cmake make tmux build-essential libjson-c-dev libwebsockets-dev"
@@ -50,6 +59,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     tmux a -t "set ssh in browser"
 
  elif cat /etc/*release | grep ^NAME | grep Debian; then
+   check_or_create
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Debian"
     echo "==============================================="
