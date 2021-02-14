@@ -85,7 +85,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     ## If want to enable authentication just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash"
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
     ## and comment default one
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
