@@ -1,4 +1,6 @@
 .vagrant/
 ttyd/
-.log
+*.log
+*.pyc
+*.retry
 Vagrantfile
