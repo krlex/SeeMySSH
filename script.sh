@@ -1,10 +1,5 @@
 #!/bin/sh
 
-USER=user
-PASSWD=password
-
-UNAME=$(uname)
-
 check_or_create(){
 FILE=~/.ssh/id_dsa
 if [ -f "$FILE" ]; then
@@ -14,6 +9,20 @@ else
 
 fi
 }
+
+if [ -z $1 ]; then
+  echo "Enter the Username:"
+  read USER
+else
+  USER=$1
+fi
+
+stty -echo ; read -p "Enter New Password: " PASSWD; stty echo
+
+echo "Your username $USER and your password only you know"
+
+UNAME=$(uname)
+
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
 DEB_PACKAGE_NAME="git cmake make tmux build-essential libjson-c-dev libwebsockets-dev"
@@ -36,10 +45,10 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     ## If want to enable authentication and readonly just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
+    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
-    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
     ## If you want to be 'readonly' just add -R. Example:
     #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
 
@@ -65,10 +74,10 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     ## If want to enable authentication and readonly just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
+    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
-    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
     ## If you want to be 'readonly' just add -R. Example:
     #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
 
@@ -95,10 +104,10 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     rm -rf ttyd/
 
     ## If want to enable authentication and readonly just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
+    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
-    tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
     ## If you want to be 'readonly' just add -R. Example:
     #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
 
