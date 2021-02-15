@@ -1,6 +1,10 @@
 #!/bin/sh
 
+USER=user
+PASSWD=password
+
 UNAME=$(uname)
+
 check_or_create(){
 FILE=~/.ssh/id_dsa
 if [ -f "$FILE" ]; then
@@ -31,11 +35,14 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     cd ../../
     rm -rf ttyd/
 
-    ## If want to enable authentication just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
+    ## If want to enable authentication and readonly just uncomment this:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    ## If you want to be 'readonly' just add -R. Example:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
+
     tmux split-window -v
     tmux split-window -h -p 50 -t 0 "ssh -R 80:localhost:8080 ssh.localhost.run"
     tmux a -t "set ssh in browser"
@@ -57,11 +64,14 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     cd ../../
     rm -rf ttyd/
 
-    ## If want to enable authentication just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
+    ## If want to enable authentication and readonly just uncomment this:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    ## If you want to be 'readonly' just add -R. Example:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
+
     tmux split-window -v
     tmux split-window -h -p 50 -t 0 "ssh -R 80:localhost:8080 ssh.localhost.run"
     tmux a -t "set ssh in browser"
@@ -84,11 +94,14 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     cd ../../
     rm -rf ttyd/
 
-    ## If want to enable authentication just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
+    ## If want to enable authentication and readonly just uncomment this:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    ## If you want to be 'readonly' just add -R. Example:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
+
     tmux split-window -h -p 50 -t 0 "ssh -R 80:localhost:8080 ssh.localhost.run"
     tmux split-window -v
     tmux a -t "set ssh in browser"
@@ -100,11 +113,14 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     sudo pkg update
     sudo pkg install -y $PKG_PACKAGE_NAME
 
-    ## If want to enable authentication just uncomment this:
-    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
+    ## If want to enable authentication and readonly just uncomment this:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c $USER:$PASSWD -B -R bash -lic 'tmux a'"
     ## and comment default one
 
     tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash x"
+    ## If you want to be 'readonly' just add -R. Example:
+    #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -R bash x"
+
     tmux split-window -v
     tmux a -t "set ssh in browser"
     tmux split-window -h -p 30 -t 0 "ssh -R 80:localhost:8080 ssh.localhost.run"

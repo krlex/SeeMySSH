@@ -13,10 +13,10 @@
   git clone https://github.com/krlex/browser-ssh
   ./script.sh
   ```
-- If you want to start with authentication, you need to uncomment:
+- If you want to start with authentication and readonly mode, you need to uncomment:
   ```
    ## If want to enable authentication just uncomment this:
-   #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash"
+   #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B-R bash"
   ```
   and comment:
   ```
