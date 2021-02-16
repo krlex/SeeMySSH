@@ -3,4 +3,5 @@ ttyd/
 *.log
 *.pyc
 *.retry
+build/
 Vagrantfile
