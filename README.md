@@ -13,6 +13,8 @@
   git clone https://github.com/krlex/browser-ssh
   ./script.sh
   ```
+  if you use freebsd u may start script with `sh script.sh`
+
 - If you want to start with authentication and readonly mode, you need to uncomment:
   ```
    ## If want to enable authentication just uncomment this:
