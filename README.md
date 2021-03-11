@@ -4,7 +4,7 @@
 
 - latest version creates new or rewrights old id_rsa( if you say "y" ) and then starts installation and configuration
 
-- This work on FreeBSD, Debian/Ubuntu, Fedora
+- This work on FreeBSD, Arch, Debian/Ubuntu, Fedora, Alpine313
 
 - For installation:
 
