@@ -43,7 +43,7 @@ tmux_job(){
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
 DEB_PACKAGE_NAME="git cmake make tmux build-essential libjson-c-dev libwebsockets-dev"
-APK_PACKAGE_NAME="git musl-dev zlib libzip cmake tmux gcc libwebsockets"
+APK_PACKAGE_NAME="git musl-dev zlib zlib-dev make libzip libuv-dev json-c-dev cmake tmux gcc libwebsockets-dev libwebsockets"
 PACMAN_PACKAGE_NAME="git cmake tmux libwebsockets"
 DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libwebsockets-devel.x86_64 json-c-devel.x86_64 openssl-devel.x86_64 zlib-devel.x86_64"
 
