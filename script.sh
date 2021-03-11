@@ -43,10 +43,28 @@ tmux_job(){
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
 DEB_PACKAGE_NAME="git cmake make tmux build-essential libjson-c-dev libwebsockets-dev"
+APK_PACKAGE_NAME="git cmake tmux libwebsockets"
 PACMAN_PACKAGE_NAME="git cmake tmux libwebsockets"
 DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libwebsockets-devel.x86_64 json-c-devel.x86_64 openssl-devel.x86_64 zlib-devel.x86_64"
 
- if cat /etc/*release | grep ^NAME | grep Arch; then
+ if cat /etc/*release | grep ^NAME | grep Alpine; then
+   check_or_create
+    echo "==============================================="
+    echo "Installing packages $APK_PACKAGE_NAME on Alpine"
+    echo "==============================================="
+    sudo apk add $APK_PACKAGE_NAME
+
+    git clone https://github.com/tsl0922/ttyd.git ~/ttyd
+
+    cd ~/ttyd
+    mkdir build
+    cd build
+    sudo cmake ..
+    sudo make && sudo make install
+    cd ../../
+   tmux_job
+
+ elif cat /etc/*release | grep ^NAME | grep Arch; then
    check_or_create
     echo "==============================================="
     echo "Installing packages $PACMAN_PACKAGE_NAME on Arch"
