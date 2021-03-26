@@ -32,3 +32,7 @@
   tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
   ```
   and this will start in browser with `tmux a`
+
+## One-line download and installation 
+
+      bash <(curl -sL https://raw.githubusercontent.com/krlex/browser-ssh/master/script.sh)
