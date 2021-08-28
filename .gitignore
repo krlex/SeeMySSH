@@ -4,4 +4,6 @@ ttyd/
 *.pyc
 *.retry
 build/
+deb/
+.deb
 Vagrantfile
