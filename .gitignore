@@ -5,4 +5,5 @@ ttyd/
 *.retry
 build/
 deb/
+.deb
 Vagrantfile
