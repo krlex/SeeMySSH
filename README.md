@@ -1,5 +1,7 @@
 # SSH in browser over https and http
 
+[![CI](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml/badge.svg)](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml)
+
 ## Warning
 
 - latest version creates new or rewrights old id_rsa( if you say "y" ) and then starts installation and configuration
