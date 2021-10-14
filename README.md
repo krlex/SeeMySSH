@@ -8,6 +8,8 @@
 
 - This work on FreeBSD, Arch, Debian/Ubuntu, Fedora, Alpine313
 
+- This work only on latest versions of OS
+
 - For installation:
 
   ```

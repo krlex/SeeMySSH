@@ -39,6 +39,17 @@ tmux_job(){
 
 }
 
+git_job(){
+    git clone https://github.com/tsl0922/ttyd.git ~/ttyd
+
+    cd ~/ttyd
+    mkdir build
+    cd build
+    sudo cmake ..
+    sudo make && sudo make install
+    cd ../../
+}
+
 
 
 PKG_PACKAGE_NAME="git-lite cmake tmux ttyd"
@@ -54,14 +65,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     echo "==============================================="
     sudo apk add $APK_PACKAGE_NAME
 
-    git clone https://github.com/tsl0922/ttyd.git ~/ttyd
-
-    cd ~/ttyd
-    mkdir build
-    cd build
-    sudo cmake ..
-    sudo make && sudo make install
-    cd ../../
+    git_job
    tmux_job
 
  elif cat /etc/*release | grep ^NAME | grep Arch; then
@@ -71,14 +75,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     echo "==============================================="
     sudo pacman -S -y $PACMAN_PACKAGE_NAME
 
-    git clone https://github.com/tsl0922/ttyd.git ~/ttyd
-
-    cd ~/ttyd
-    mkdir build
-    cd build
-    sudo cmake ..
-    sudo make && sudo make install
-    cd ../../
+    git_job
    tmux_job
 
  elif cat /etc/*release | grep ^NAME | grep Fedora; then
@@ -88,15 +85,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     echo "==============================================="
     sudo dnf install -y $DNF_PACKAGE_NAME
 
-    git clone https://github.com/tsl0922/ttyd.git
-
-    cd ttyd
-    mkdir build
-    cd build
-    sudo cmake ..
-    sudo make && sudo make install
-    cd ../../
-    rm -rf ttyd/
+    git_job 
    tmux_job
 
 
@@ -108,16 +97,8 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     sudo apt-get update
     sudo apt-get install -y $DEB_PACKAGE_NAME
 
-    git clone https://github.com/tsl0922/ttyd.git
 
-    cd ttyd
-    mkdir build
-    cd build
-    cmake ..
-    sudo make && sudo make install
-    cd ../../
-    rm -rf ttyd/
-
+    git_job
    tmux_job
 
  elif cat /etc/*release | grep ^NAME | grep Debian; then
@@ -128,15 +109,7 @@ DNF_PACKAGE_NAME="git cmake.x86_64 make tmux libjson-rpc-cpp-devel.x86_64 libweb
     sudo apt-get update
     sudo apt-get install -y $DEB_PACKAGE_NAME
 
-    git clone https://github.com/tsl0922/ttyd.git
-
-    cd ttyd
-    mkdir build
-    cd build
-    cmake ..
-    sudo make && sudo make install
-    cd ../../
-    rm -rf ttyd/
+   git_job 
   tmux_job
 
 
