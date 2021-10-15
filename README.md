@@ -43,7 +43,7 @@
 
 ## Latest Update 
 
-You have chance to have SSL or not:
+Now you have a chance to choose SSL or not:
 
 For example:
 
