@@ -40,3 +40,16 @@
 ## One-line download and installation 
 
       bash <(curl -sL https://raw.githubusercontent.com/krlex/browser-ssh/master/script.sh)
+
+## Latest Update 
+
+Now you have a chance to choose SSL or not:
+
+For example:
+
+      https://89e7fc72295ff1.lhr.domains
+
+or without SSL 
+
+      http://89e7fc72295ff1.lhr.domains
+
