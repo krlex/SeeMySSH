@@ -1,4 +1,4 @@
-# SSH in browser over https and http
+# Share your SSH terminal over browser
 
 [![CI](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml/badge.svg)](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml)
 
