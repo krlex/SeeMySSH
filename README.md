@@ -14,7 +14,7 @@
 
   ```
   sudo apt-get install -y git
-  git clone https://github.com/krlex/browser-ssh
+  git clone https://github.com/krlex/SeeMySSH
   ./script.sh
   ```
   if you use freebsd u may start script with `sh script.sh`
@@ -39,7 +39,7 @@
 
 ## One-line download and installation 
 
-      bash <(curl -sL https://raw.githubusercontent.com/krlex/browser-ssh/master/script.sh)
+      bash <(curl -sL https://raw.githubusercontent.com/krlex/SeeMySSH/master/script.sh)
 
 ## Latest Update 
 
