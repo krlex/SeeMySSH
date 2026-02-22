@@ -1,55 +1,76 @@
-# Share your SSH terminal over browser
+# SeeMySSH - Share your SSH terminal over the browser
 
-[![CI](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml/badge.svg)](https://github.com/krlex/browser-ssh/actions/workflows/blank.yml)
+[![CI](https://github.com/krlex/SeeMySSH/actions/workflows/blank.yml/badge.svg)](https://github.com/krlex/SeeMySSH/actions/workflows/blank.yml)
 
-## Warning
+Share your terminal session over the browser using [ttyd](https://github.com/tsl0922/ttyd), [tmux](https://github.com/tmux/tmux) and an [ssh.localhost.run](https://localhost.run/) tunnel.
 
-- latest version creates new or rewrights old id_rsa( if you say "y" ) and then starts installation and configuration
+## Supported operating systems
 
-- This work on FreeBSD, Arch, Debian/Ubuntu, Fedora, Alpine313
+- Debian / Ubuntu
+- Fedora
+- Arch Linux (including Manjaro, EndeavourOS)
+- Alpine Linux
+- FreeBSD
 
-- This work only on latest versions of OS
+## Installation
 
-- For installation:
+```sh
+git clone https://github.com/krlex/SeeMySSH.git
+cd SeeMySSH
+sh script.sh -u myuser
+```
 
-  ```
-  sudo apt-get install -y git
-  git clone https://github.com/krlex/SeeMySSH
-  ./script.sh
-  ```
-  if you use freebsd u may start script with `sh script.sh`
+### One-line installation
 
-- If you want to start with authentication and readonly mode, you need to uncomment:
-  ```
-   ## If want to enable authentication just uncomment this:
-   #tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B -R bash"
-  ```
-  and comment:
-  ```
-  tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 bash -x"
-  ```
-  and after that start `script.sh`
+```sh
+bash <(curl -sL https://raw.githubusercontent.com/krlex/SeeMySSH/master/script.sh) -u myuser
+```
 
-- If you want to start with some command or something you want do this: ( in exmaple is `tmux a`)
+## Usage
 
-  ```
-  tmux new-session -s "set ssh in browser" -d "ttyd -p 8080 -c user:password -B bash -lic 'tmux a'"
-  ```
-  and this will start in browser with `tmux a`
+```
+Usage: script.sh [OPTIONS]
 
-## One-line download and installation 
+Options:
+  -u, --user USER       Username for ttyd authentication
+  -p, --port PORT       Port for ttyd (default: 8080)
+  -r, --readonly        Start ttyd in read-only mode
+  -U, --uninstall       Kill sessions and remove ttyd
+  -h, --help            Show this help message
+```
 
-      bash <(curl -sL https://raw.githubusercontent.com/krlex/SeeMySSH/master/script.sh)
+## Examples
 
-## Latest Update 
+Start with the default port (8080) and authentication:
 
-Now you have a chance to choose SSL or not:
+```sh
+sh script.sh -u admin
+```
 
-For example:
+Start on a custom port in read-only mode:
 
-      https://89e7fc72295ff1.lhr.domains
+```sh
+sh script.sh -u viewer -p 9090 --readonly
+```
 
-or without SSL 
+## Uninstall
 
-      http://89e7fc72295ff1.lhr.domains
+Kill all active sessions and remove ttyd:
 
+```sh
+sh script.sh --uninstall
+```
+
+## How it works
+
+1. Detects your OS and installs the required packages (ttyd, tmux, etc.)
+2. Builds ttyd from source if it is not already installed (FreeBSD uses packages)
+3. Starts a tmux session with ttyd serving a terminal on the configured port
+4. Opens an [ssh.localhost.run](https://localhost.run/) tunnel to make the terminal accessible via a public URL
+
+The tunnel provides both SSL and plain HTTP access:
+
+```
+https://89e7fc72295ff1.lhr.domains
+http://89e7fc72295ff1.lhr.domains
+```
